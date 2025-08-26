@@ -2,7 +2,7 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import { todoState } from "./atoms";
 import Board from "./components/board/board";
-import { MainWrapper } from "./styles/main-styled";
+import { MainTitle, MainWrapper } from "./styles/main-styled";
 import { Boards } from "./styles/board-styled";
 
 const App = () => {
@@ -49,6 +49,8 @@ const App = () => {
 
   return (
     <>
+      <MainTitle>Let's TODO!</MainTitle>
+
       <DragDropContext onDragEnd={onDragEnd}>
         <MainWrapper>
           <Boards>
