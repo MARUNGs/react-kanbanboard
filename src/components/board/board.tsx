@@ -1,25 +1,7 @@
 import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
-import DragabbleCard from "./DragabbleCard";
-
-// styled
-const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.boardColor};
-  padding-top: 30px;
-  padding: 20px 10px;
-  border-radius: 5px;
-  min-height: 200px;
-
-  display: flex;
-  flex-direction: column;
-`;
-
-const Title = styled.h2`
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 18px;
-`;
+import DragabbleCard from "./dragabble-card";
+import { BoardTitle, BoardWrapper } from "../../styles/board-styled";
 
 interface IAreaProps {
   isDraggingOver: boolean;
@@ -42,8 +24,8 @@ interface IBoardProps {
 const Board = ({ todos, boardId }: IBoardProps) => {
   return (
     <>
-      <Wrapper>
-        <Title>{boardId}</Title>
+      <BoardWrapper>
+        <BoardTitle>{boardId}</BoardTitle>
         <Droppable droppableId={boardId}>
           {(provided, snapshot) => (
             <Area
@@ -59,7 +41,7 @@ const Board = ({ todos, boardId }: IBoardProps) => {
             </Area>
           )}
         </Droppable>
-      </Wrapper>
+      </BoardWrapper>
     </>
   );
 };
